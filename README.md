@@ -71,6 +71,8 @@ The following environment variables can be passed to the S2I build process to cu
   * Description: Use the specified maven mirror to resolve dependencies
 * `DEPLOY_TO_APPS`
   * Description: When true, applicaton binaries will be copied to `apps` instead of `dropins`
+* `DEPLOY_TO_SPRING`
+  * Description: When true, applicaton binaries will be copied to `dropins/spring/` instead of `dropins` or `apps`
 * `HTTP_ENDPOINT`
   *  Description: Add configuration properties for an HTTP endpoint.
   *  XML Snippet Location: [http-ssl-endpoint.xml](https://github.com/OpenLiberty/ci.docker/tree/master/common/helpers/build/configuration_snippets/http-ssl-endpoint.xml) when SSL is enabled. Otherwise [http-endpoint.xml](https://github.com/OpenLiberty/ci.docker/tree/master/common/helpers/build/configuration_snippets/http-endpoint.xml)

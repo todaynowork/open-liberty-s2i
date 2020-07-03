@@ -35,10 +35,16 @@ SERVER_DIR=/opt/ol/wlp/usr/servers/defaultServer
 ARTIFACT_DIR=${ARTIFACT_DIR:-target}
 
 # Resulting WAR files will be deployed to /opt/ol/wlp/usr/servers/defaultServer/dropins/
-if [ -z "$DEPLOY_TO_APPS" ]; then
+if [ -n "$DEPLOY_TO_SPRING" ]; then
+  DEPLOY_DIR=$SERVER_DIR/dropins/spring/
+  echo "Deploy to spring: $DEPLOY_DIR"
+  mkdir -p $DEPLOY_DIR
+elif [ -z "$DEPLOY_TO_APPS" ]; then
   DEPLOY_DIR=$SERVER_DIR/dropins/
+  echo "Deploy to dropins: $DEPLOY_DIR"
 else
   DEPLOY_DIR=$SERVER_DIR/apps/
+  echo "Deploy to apps: $DEPLOY_DIR"
 fi
 
 echo "Artifacts Directory: $ARTIFACT_DIR"
